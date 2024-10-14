@@ -69,6 +69,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
     func test_load_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() {
         let (sut, client) = makeSUT()
         
+        
         expect(sut, toCompleteWith: .success([]), when: {
             let emptyListJSON = makeItemsJSON([])
             client.complete(withStatusCode: 200, data: emptyListJSON)
@@ -102,7 +103,15 @@ final class RemoteFeedLoaderTests: XCTestCase {
     private func makeSUT(url: URL = URL(string: "https://a-url.com")!) -> (sut: RemoteFeedLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemoteFeedLoader(url: url, client: client)
+        trackForMemoryLeaks(sut)
+        trackForMemoryLeaks(client)
         return (sut: sut, client: client)
+    }
+    
+    private func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak", file: #file, line: #line)
+        }
     }
     
     private func makeItem(id: UUID, description: String? = nil, location: String? = nil, imageURL:  URL) -> (model: FeedItem, json: [String: Any]) {
