@@ -21,11 +21,8 @@ public final class RemoteFeedLoader {
         case invalidData
     }
     
-    public enum Result: Equatable {
-        case success([FeedItem])
-        case failure(Error)
-    }
-    
+    public typealias Result = LoadFeedResult<Error>
+
     public func load(completion: @escaping  (Result) -> Void) {
         client.get(from: url) { [weak self] result in
             guard self != nil else { return }
@@ -34,7 +31,7 @@ public final class RemoteFeedLoader {
             case let .success(data, response):
                 completion(FeedItemsMapper.map(data, from: response))
             case .failure:
-                completion(.failure(.connectivity))
+                completion(.failure(Error.connectivity))
             }
         }
     }
