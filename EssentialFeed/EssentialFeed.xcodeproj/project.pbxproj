@@ -14,6 +14,7 @@
 		6E5625772CC34F4800F339F1 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080EDEF121B6DA7E00813479 /* EssentialFeed.framework */; };
 		6E5BB1D12CBD7B0D00473255 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5BB1D02CBD7B0300473255 /* HTTPClient.swift */; };
 		6E5BB1D32CBD7B8B00473255 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5BB1D22CBD7B8800473255 /* FeedItemsMapper.swift */; };
+		6E6DA66B2CCD782400B0E31E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6E6DA66A2CCD782400B0E31E /* README.md */; };
 		6EB1A84F2CB7538D00DF2B54 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB1A84E2CB7538D00DF2B54 /* RemoteFeedLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		6E5625732CC34F4800F339F1 /* EssentialFeedAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E5BB1D02CBD7B0300473255 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		6E5BB1D22CBD7B8800473255 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
+		6E6DA66A2CCD782400B0E31E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6EB1A84E2CB7538D00DF2B54 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 		080EDEE721B6DA7E00813479 = {
 			isa = PBXGroup;
 			children = (
+				6E6DA66A2CCD782400B0E31E /* README.md */,
 				6E5254102CC3E8F600A5B68E /* CI.xctestplan */,
 				080EDEF321B6DA7E00813479 /* EssentialFeed */,
 				080EDEFE21B6DA7E00813479 /* EssentialFeedTests */,
@@ -275,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E6DA66B2CCD782400B0E31E /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
