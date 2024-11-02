@@ -69,26 +69,38 @@ Given the customer doesn't have connectivity
 #### No connectivity – error course (sad path):
 1. System delivers connectivity error.
 
+
 ### Load Feed From Cache Use Case
 
 #### Primary course:
 1. Execute "Load Image Feed" command with above data.
-2. System retreives feed data from cache.
+2. System retrieves feed data from cache.
 3. System validates cache is less than seven days old.
 4. System creates image feed from cached data.
 5. System delivers image feed.
 
 #### Retrieval Error course (sad path):
-1. System deletes cache.
-2. System delivers error.
+1. System delivers error.
 
 #### Expired cache course (sad path): 
-1. Sytem deletes cache.
-2. System delivers no feed images.
-
+1. System delivers no feed images.
 
 #### Empty cache course (sad path): 
 1. System delivers no feed images.
+
+
+### Validate Feed From Cache Use Case
+
+#### Primary course:
+1. Execute "Validate Cache" command with above data.
+2. System retreives feed data from cache.
+3. System validates cache is less than seven days old.
+
+#### Retrieval Error course (sad path):
+1. System deletes cache.
+
+#### Expired cache course (sad path): 
+1. Sytem deletes cache.
 
 
 ### Cache Feed Use Case
