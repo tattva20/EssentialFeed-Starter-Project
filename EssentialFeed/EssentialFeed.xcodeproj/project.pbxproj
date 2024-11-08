@@ -224,10 +224,10 @@
 				6E1E4CE32CD2C66900D9C6C7 /* Helpers */,
 				6E4771942CDE5B1200F55DB2 /* FeedStoreSpecs */,
 				6E4771902CDE5AB400F55DB2 /* CoreDataFeedStoreTests.swift */,
+				6E4771622CDAE48700F55DB2 /* CodableFeedStoreTests.swift */,
 				6E6DA6792CCE7FA700B0E31E /* CacheFeedUseCaseTests.swift */,
 				6E1E4CE12CD2C48C00D9C6C7 /* LoadFeedFromCacheUseCaseTests.swift */,
 				6E4771592CD6D94B00F55DB2 /* ValidateFeedCacheUseCaseTests.swift */,
-				6E4771622CDAE48700F55DB2 /* CodableFeedStoreTests.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
