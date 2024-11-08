@@ -236,9 +236,9 @@
 			children = (
 				6E4771972CDE5E5300F55DB2 /* FeedStore.xcdatamodeld */,
 				6E47719B2CDEA12A00F55DB2 /* CoreDataHelpers.swift */,
+				6E47719E2CDEA21800F55DB2 /* ManagedCache.swift */,
 				6E4771A02CDEA24000F55DB2 /* ManagedFeedImage.swift */,
 				6E4771952CDE5B4100F55DB2 /* CoreDataFeedStore.swift */,
-				6E47719E2CDEA21800F55DB2 /* ManagedCache.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
