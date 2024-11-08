@@ -2,7 +2,7 @@
 //  XCTestCase+FailableInsertFeedStoreSpecs.swift
 //  EssentialFeed
 //
-//  Created by Octavio Rojas on 07/11/24.
+//  Created by Octavio Rojas on 08/11/24.
 //
 
 import XCTest
