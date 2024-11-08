@@ -187,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				6E47719A2CDE9FF100F55DB2 /* Infrastructure */,
-				6E4771642CDC609E00F55DB2 /* CodableFeedStore.swift */,
 				6E1E4CD92CD1752F00D9C6C7 /* LocalFeedLoader.swift */,
 				6E4771602CD944BE00F55DB2 /* FeedCachePolicy.swift */,
 				6E1E4CDB2CD1763900D9C6C7 /* FeedStore.swift */,
@@ -220,6 +219,7 @@
 		6E47719A2CDE9FF100F55DB2 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				6E4771642CDC609E00F55DB2 /* CodableFeedStore.swift */,
 				6E4771952CDE5B4100F55DB2 /* CoreDataFeedStore.swift */,
 				6E4771972CDE5E5300F55DB2 /* FeedStore.xcdatamodeld */,
 			);
