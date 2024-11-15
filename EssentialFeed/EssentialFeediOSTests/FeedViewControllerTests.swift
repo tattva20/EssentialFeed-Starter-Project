@@ -168,7 +168,43 @@ final class FeedViewControllerTests: XCTestCase {
 //        XCTAssertEqual(view1?.renderedImage, imageData1, "Expected image for second view once secibd image loading completes successfully"))
 //
 //    }
+//
 //    
+//    func test_feedImageViewRetryButton_isVisibleOnImageURLLoadingError() {
+//        let (sut, loader) = makeSUT()
+//        
+//        sut.loadViewIfNeeded()
+//        loader.completeFeedLoading(with: [makeImage(), makeImage()])
+//        
+//        let view0 = sut.simulateFeedImageViewVisible(at: 0)
+//        let view1 = sut.simulateFeedImageViewVisible(at: 1)
+//        XCTAssertEqual(view0?.isShowingRetryAction, false)
+//        XCTAssertEqual(view1?.isShowingRetryAction, false)
+//        
+//        let imageData = UIImage.make(withColor: .red)!.pngData()!
+//        loader.completeImageLoading(with: imageData, at: 0)
+//        XCTAssertEqual(view0?.isShowingRetryAction, false)
+//        XCTAssertEqual(view1?.isShowingRetryAction, false)
+//        
+//        loader.completeImageLoading(with: imageData, at: 1)
+//        XCTAssertEqual(view0?.isShowingRetryAction, false)
+//        XCTAssertEqual(view1?.isShowingRetryAction, true)
+//    }
+    
+    func test_feedImageViewRetryButton_isVisibleOnInvalidImageData() {
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        loader.completeFeedLoading(with: [makeImage(), makeImage()])
+        
+        let view = sut.simulateFeedImageViewVisible(at: 0)
+        XCTAssertEqual(view?.isShowingRetryAction, false)
+        
+        let invalidImageData = Data("Invalid image data".utf8)
+        loader.completeImageLoading(with: invalidImageData, at: 0)
+        XCTAssertEqual(view?.isShowingRetryAction, true)
+        
+    }
     
     // MARK: - Helpers
     
@@ -313,6 +349,10 @@ private extension FeedImageCell {
     
     var isShowingImageLoadingIndicator: Bool {
         return feedImageContainer.isShimmering
+    }
+    
+    var isShowingRetryAction: Bool {
+        return !feedImageRetryButton.isHidden
     }
     
     var locationText: String? {
