@@ -6,12 +6,11 @@
 //
 
 import Foundation
-import EssentialFeed
 
-class RemoteFeedImageDataLoader: FeedImageDataLoader {
+public final class RemoteFeedImageDataLoader: FeedImageDataLoader {
     private let client: HTTPClient
     
-    init(client: HTTPClient) {
+    public init(client: HTTPClient) {
         self.client = client
     }
     
@@ -43,7 +42,7 @@ class RemoteFeedImageDataLoader: FeedImageDataLoader {
         }
     }
 
-    func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
+    public func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
         let task = HTTPClientTaskWrapper(completion)
         task.wrapped = client.get(from: url) { [weak self] result in
             guard self != nil else { return }
