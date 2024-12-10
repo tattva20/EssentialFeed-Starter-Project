@@ -39,4 +39,8 @@ func insert(_ data: Data, for url: URL, completion: @escaping (FeedImageDataStor
     func completeInsertion(with error: Error, at index: Int = 0) {
         insertionCompletions[index](.failure(error))
     }
+    
+    func completeInsertionSuccessfully(at index: Int = 0) {
+        insertionCompletions[index](.success(()))
+    }
 }
