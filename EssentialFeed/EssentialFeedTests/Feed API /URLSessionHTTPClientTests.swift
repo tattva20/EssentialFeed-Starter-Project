@@ -130,11 +130,7 @@ class URLSessionHTTPClientTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
         return receivedResult
     }
-    
-    private func anyData() -> Data {
-        return Data("Any data".utf8)
-    }
-    
+
     private func anyNSError() -> NSError {
         NSError(domain: "any error", code: 0)
     }
