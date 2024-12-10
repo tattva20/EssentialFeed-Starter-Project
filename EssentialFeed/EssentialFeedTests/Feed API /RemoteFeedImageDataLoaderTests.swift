@@ -179,41 +179,6 @@ class RemoteFeedImageDataLoaderTests: XCTestCase {
         return .failure(error)
     }
     
-    private class HTTPClientSpy: HTTPClient {
-        private struct Task: HTTPClientTask {
-            let callback: () -> Void
-            func cancel() { callback() }
-        }
-        
-        private var messages = [(url: URL, completion: (HTTPClientSpy.Result) -> Void)]()
-        private(set) var cancelledURLs = [URL]()
-        
-        var requestedURLs: [URL] {
-            return messages.map(\.url)
-        }
-        
-        func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) -> HTTPClientTask {
-            messages.append((url, completion))
-            return Task { [weak self] in
-                self?.cancelledURLs.append(url)
-            }
-        }
-        
-        func complete(with error: Error, at index: Int = 0) {
-            messages[index].completion(.failure(error))
-        }
-        
-        func complete(withStatusCode code: Int, data: Data, at index: Int = 0) {
-            let response = HTTPURLResponse(
-                url: requestedURLs[index],
-                statusCode: code,
-                httpVersion: nil,
-                headerFields: nil
-            )!
-            messages[index].completion(.success((data, response)))
-        }
-    }
-    
     private func expect(_ sut: RemoteFeedImageDataLoader, toCompleteWith expectedResult: FeedImageDataLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
         let url = URL(string: "https://a-given-url.com")!
         let exp = expectation(description: "Wait for load completion")
